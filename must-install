@@ -1,0 +1,21 @@
+base
+base-devel
+
+-----Official Packages-----
+intel-ucode
+grub
+xf86-video-nouveau
+xorg
+i3
+lightdm
+lightdm-gtk-greeter
+networkmanager
+gnome-terminal
+git
+sudo
+vim
+feh
+unzip
+
+-----AUR Packages-----
+google-chrome
