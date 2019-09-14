@@ -16,6 +16,14 @@ sudo
 vim
 feh
 unzip
+rofi
+#network-manager-applet
+#xautolock
+acpi
+alsa-utils
 
 -----AUR Packages-----
+yay
 google-chrome
+sublime-text-dev
+kbdd-git
