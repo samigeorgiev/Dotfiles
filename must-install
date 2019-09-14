@@ -21,6 +21,7 @@ rofi
 #xautolock
 acpi
 alsa-utils
+ranger
 
 -----AUR Packages-----
 yay
