@@ -17,11 +17,13 @@ vim
 feh
 unzip
 rofi
-#network-manager-applet
-#xautolock
+network-manager-applet
+xautolock
 acpi
 alsa-utils
 ranger
+pulseaudio
+pulseaudio-alsa
 
 -----AUR Packages-----
 yay
