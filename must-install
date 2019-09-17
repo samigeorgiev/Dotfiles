@@ -24,9 +24,14 @@ alsa-utils
 ranger
 pulseaudio
 pulseaudio-alsa
+zsh
 
 -----AUR Packages-----
 yay
 google-chrome
 sublime-text-dev
 kbdd-git
+
+-----Other-----
+oh-my-zsh
+powerline-fonts
