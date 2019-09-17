@@ -25,6 +25,8 @@ ranger
 pulseaudio
 pulseaudio-alsa
 zsh
+pulseaudio-bluetooth
+bluez-utils
 
 -----AUR Packages-----
 yay
@@ -35,3 +37,4 @@ kbdd-git
 -----Other-----
 oh-my-zsh
 powerline-fonts
+vscode
