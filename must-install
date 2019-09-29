@@ -27,14 +27,17 @@ pulseaudio-alsa
 zsh
 pulseaudio-bluetooth
 bluez-utils
+transmission-cli
+openssh
+python-pip
 
 -----AUR Packages-----
 yay
 google-chrome
-sublime-text-dev
 kbdd-git
 
 -----Other-----
 oh-my-zsh
 powerline-fonts
 vscode
+nvm

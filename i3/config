@@ -37,6 +37,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 # launch rofi (program launcher)
 bindsym $mod+d exec rofi -show drun -theme Arc-Dark -lines 5 -width 20 -show-icons
 
+# launch VSCode
+bindsym $mod+c exec --no-startup-id /home/sami/Apps/VSCode-linux-x64/code
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -222,7 +225,7 @@ bar {
 bindsym $mod+Shift+x exec --no-startup-id $lock
 
 # autolock
-exec xautolock -time 1 -locker "$lock"
+exec --no-startup-id xautolock -time 10 -locker "$lock"
 
 # Set wallpaper
 exec_always --no-startup-id feh --bg-scale ~/Arch-Wallpapers/archlinux-deep-aurora.jpg
@@ -231,7 +234,7 @@ exec_always --no-startup-id feh --bg-scale ~/Arch-Wallpapers/archlinux-deep-auro
 exec_always --no-startup-id xrandr --output LVDS-1 --auto --output DP-1-1 --auto --left-of LVDS-1 --primary
 
 # start apps after boot
-exec google-chrome-stable
+exec --no-startup-id google-chrome-stable
 exec i3-sensible-terminal
 
 # add bg layout
