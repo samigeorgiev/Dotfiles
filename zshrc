@@ -101,6 +101,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias gcw='gcc -Wall -pedantic -std=c11'
+alias i3conf='vim ~/.config/i3/config'
+alias wifiscan='nmcli device wifi list'
+alias wificonnect='nmcli device wifi connect'
 
 # Edit aliases from plugins
 unalias rm
