@@ -26,7 +26,7 @@ set $inactive-text-color #676e7d
 set $urgent-bg-color     #e53935
 
 # lock command
-set $lock i3lock --color=2f343f
+set $lock i3lock --color=2f343f # bg-color
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
