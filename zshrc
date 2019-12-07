@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/Apps/VSCode-linux-x64:$PATH
+export PATH=$HOME/Apps/VSCode-linux-x64:$HOME/Apps/Postman:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/sami/.oh-my-zsh"
@@ -11,7 +11,7 @@ export DEFAULT_USER="sami"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="steeef"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -98,18 +98,18 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias gcw='gcc -Wall -pedantic -std=c11'
-alias i3conf='vim ~/.config/i3/config'
+alias i3config='vim ~/.config/i3/config'
 alias wifiscan='nmcli device wifi list'
 alias wificonnect='nmcli device wifi connect'
+alias zshconfig='vim ~/.zshrc'
+alias static='python -m http.server'
 
 # Edit aliases from plugins
 unalias rm
 unalias cp
 unalias mv
-alias zshrc='vim ~/.zshrc'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

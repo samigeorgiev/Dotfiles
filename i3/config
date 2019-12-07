@@ -1,7 +1,6 @@
 set $mod Mod4
 
-# font pango:monospace 8
-font pango:DejaVu Sans Mono 10
+font pango:Hack 10
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -25,8 +24,8 @@ set $text-color          #f3f4f5
 set $inactive-text-color #676e7d
 set $urgent-bg-color     #e53935
 
-# lock command
-set $lock i3lock --color=2f343f # bg-color
+# exit command
+set $exit_command ~/.config/i3/exit
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -38,7 +37,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+d exec rofi -show drun -theme Arc-Dark -lines 5 -width 20 -show-icons
 
 # launch VSCode
-bindsym $mod+c exec --no-startup-id /home/sami/Apps/VSCode-linux-x64/code
+bindsym $mod+c exec --no-startup-id ~/Apps/VSCode-linux-x64/code
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -98,8 +97,8 @@ bindsym $mod+a focus parent
 set $ws1 "1: "
 set $ws2 "2: "
 set $ws3 "3: "
-set $ws4 "4: "
-set $ws5 "5"
+set $ws4 "4: &#xf188;"
+set $ws5 "5: "
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -131,9 +130,9 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # assign app to workspace
-assign [class="Google-chrome"] $ws1
+assign [class="Google-chrome" window_role="browser"] $ws1
 assign [class="Gnome-terminal"] $ws2
-assign [class="Code"] $ws3
+assign [class="Code" window_role="browser-window"] $ws3
 
 # output workspace on monitor
 workspace $ws1 output primary
@@ -150,19 +149,15 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
 # exit menu
 set $exit_mode (L)ock (E)xit (S)uspend (R)eboot (Shift +S)hutdown
 mode "$exit_mode" {
-	bindsym l exec --no-startup-id $lock, mode "default"
-	bindsym e exec --no-startup-id i3-msg exit, mode "default"
-	bindsym s exec --no-startup-id $lock && systemctl suspend, mode "default" 
-	# Hibernate doesnt work
-	#bindsym h exec --no-startup-id $lock && systemctl hibernate, mode "default"
-	bindsym r exec --no-startup-id systemctl reboot, mode "default"
-	bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+	bindsym l exec --no-startup-id $exit_command lock, mode "default"
+	bindsym e exec --no-startup-id $exit_command exit, mode "default"
+	bindsym s exec --no-startup-id $exit_command suspend, mode "default"
+	bindsym h exec --no-startup-id $exit_command hibernate, mode "default"
+	bindsym r exec --no-startup-id $exit_command reboot, mode "default"
+	bindsym Shift+s exec --no-startup-id $exit_command shutdown, mode "default"
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
@@ -222,10 +217,10 @@ bar {
 }
 
 # Lock i3
-bindsym $mod+Shift+x exec --no-startup-id $lock
+bindsym $mod+Shift+x exec --no-startup-id $exit_command lock
 
 # autolock
-exec --no-startup-id xautolock -time 10 -locker "$lock"
+exec --no-startup-id xautolock -time 10 -locker "$exit_command suspend"
 
 # Set wallpaper
 exec_always --no-startup-id feh --bg-scale ~/Arch-Wallpapers/archlinux-deep-aurora.jpg

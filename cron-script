@@ -1,5 +1,0 @@
-#@reboot rm -r ~/Dotfiles/fonts && cp -r ~/.fonts ~/Dotfiles/fonts
-#@reboot rm -r ~/Dotfiles/i3 && mkdir ~/Dotfiles/i3 && cp ~/.config/i3/config ~/Dotfiles/i3/config && cp ~/.config/i3/i3blocks.conf ~/Dotfiles/i3/i3blocks.conf 
-#@reboot rm ~/Dotfiles/zshrc && cp ~/.zshrc ~/Dotfiles/zshrc 
-#@reboot crontab -l > ~/Dotfiles/cron-script
-#@reboot cd ~/Dotfiles && git add . && git commit -m "Auto commit from W530" && git pull origin master && git push origin master

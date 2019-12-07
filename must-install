@@ -14,12 +14,12 @@ gnome-terminal
 git
 sudo
 vim
+chromium
 feh
 unzip
 rofi
 network-manager-applet
 xautolock
-acpi
 alsa-utils
 ranger
 pulseaudio
@@ -27,13 +27,18 @@ pulseaudio-alsa
 zsh
 pulseaudio-bluetooth
 bluez-utils
-transmission-cli
 openssh
 python-pip
+cronie
+postgresql
+xdg-utils
+zip
+mplayer
+unrar
+ffmpeg
 
 -----AUR Packages-----
 yay
-google-chrome
 kbdd-git
 
 -----Other-----
@@ -41,3 +46,5 @@ oh-my-zsh
 powerline-fonts
 vscode
 nvm
+postman
+jetbrains toolbox
