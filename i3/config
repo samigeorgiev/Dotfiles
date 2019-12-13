@@ -2,12 +2,12 @@ set $mod Mod4
 
 font pango:Hack 10
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+set $home /home/sami
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
+# For debugging
+# bindsym $mod+Shift+d exec /home/sami/.config/i3/scripts/debug arg1 arg2
+
+# NetworkManager applet
 exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
@@ -25,7 +25,7 @@ set $inactive-text-color #676e7d
 set $urgent-bg-color     #e53935
 
 # exit command
-set $exit_command ~/.config/i3/exit
+set $exit_command /home/sami/.config/i3/scripts/exit
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -37,7 +37,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+d exec rofi -show drun -theme Arc-Dark -lines 5 -width 20 -show-icons
 
 # launch VSCode
-bindsym $mod+c exec --no-startup-id ~/Apps/VSCode-linux-x64/code
+bindsym $mod+c exec --no-startup-id $home/Apps/VSCode-linux-x64/code
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -102,20 +102,20 @@ set $ws5 "5: "
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws9 "9: "
+set $ws10 "10: "
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace number $ws5
+bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -204,7 +204,7 @@ hide_edge_borders both
 # start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        status_command i3blocks -c $home/.config/i3/i3blocks.conf
 	tray_output LVDS-1
 	colors {
 		background $bg-color
@@ -220,10 +220,10 @@ bar {
 bindsym $mod+Shift+x exec --no-startup-id $exit_command lock
 
 # autolock
-exec --no-startup-id xautolock -time 10 -locker "$exit_command suspend"
+exec --no-startup-id xautolock -time 10 -locker "$exit_command lock"
 
 # Set wallpaper
-exec_always --no-startup-id feh --bg-scale ~/Arch-Wallpapers/archlinux-deep-aurora.jpg
+exec_always --no-startup-id feh --bg-scale $home/Arch-Wallpapers/archlinux-deep-aurora.jpg
 
 # Enable multiple monitors
 exec_always --no-startup-id xrandr --output LVDS-1 --auto --output DP-1-1 --auto --left-of LVDS-1 --primary
