@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "" >> /home/sami/.config/i3/scripts/debug.log
+echo "$(date)" >> /home/sami/.config/i3/scripts/debug.log
+echo "1: $1" >> /home/sami/.config/i3/scripts/debug.log
+echo "2: $2" >> /home/sami/.config/i3/scripts/debug.log
+echo "3: $3" >> /home/sami/.config/i3/scripts/debug.log
+echo "4: $4" >> /home/sami/.config/i3/scripts/debug.log
+echo "5: $5" >> /home/sami/.config/i3/scripts/debug.log
