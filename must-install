@@ -1,5 +1,32 @@
 base
+linux
+linux-firmware
 base-devel
+cryptosetup
+device-mapper
+dhcpcd
+diffutils
+e2fsprogs
+inetutils
+jfsutils
+less
+logrotate
+lvm2
+man-db
+man-pages
+mdadm
+nano
+netctl
+perl
+reiserfsprogs
+s-nail
+sysfsutils
+systemd-sysvcompat
+texinfo
+usbutils
+vi
+which
+xfsprogs
 
 -----Official Packages-----
 intel-ucode
@@ -37,6 +64,8 @@ mplayer
 unrar
 ffmpeg
 virtualbox
+ttf-hack
+fuse2
 
 -----AUR Packages-----
 yay
