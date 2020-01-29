@@ -2,7 +2,7 @@ base
 linux
 linux-firmware
 base-devel
-cryptosetup
+cryptsetup
 device-mapper
 dhcpcd
 diffutils
@@ -66,6 +66,7 @@ ffmpeg
 virtualbox
 ttf-hack
 fuse2
+powerline-fonts
 
 -----AUR Packages-----
 yay
@@ -73,7 +74,6 @@ kbdd-git
 
 -----Other-----
 oh-my-zsh
-powerline-fonts
 vscode
 nvm
 postman
