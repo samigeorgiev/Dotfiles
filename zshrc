@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/Apps/VSCode-linux-x64:$HOME/Apps/Postman:$PATH
+export PATH=/home/sami/Apps/VSCode-linux-x64:/home/sami/Apps/jetbrains-toolbox:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/sami/.oh-my-zsh"
