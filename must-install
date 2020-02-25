@@ -67,6 +67,14 @@ virtualbox
 ttf-hack
 fuse2
 powerline-fonts
+qemu
+nasm
+transmission-cli
+gdb
+gimp
+go
+jdk-openjdk
+jdk8-openjdk
 
 -----AUR Packages-----
 yay
@@ -78,3 +86,4 @@ vscode
 nvm
 postman
 jetbrains toolbox
+tomcat

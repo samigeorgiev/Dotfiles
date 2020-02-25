@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=/home/sami/Apps/VSCode-linux-x64:/home/sami/Apps/jetbrains-toolbox:$PATH
+export PATH=/home/sami/Apps/VSCode-linux-x64:/home/sami/Apps/jetbrains-toolbox:/home/sami/go/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/sami/.oh-my-zsh"
@@ -101,10 +101,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias gcw='gcc -Wall -pedantic -std=c11'
 alias i3config='vim ~/.config/i3/config'
+alias zshconfig='vim ~/.zshrc'
 alias wifiscan='nmcli device wifi list'
 alias wificonnect='nmcli device wifi connect'
-alias zshconfig='vim ~/.zshrc'
 alias static='python -m http.server'
+alias tsmstart='transmission-daemon'
+alias tsm="transmission-remote"
+alias tsmstop='transmission-remote --exit'
 
 # Edit aliases from plugins
 unalias rm
