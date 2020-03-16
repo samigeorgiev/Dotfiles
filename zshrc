@@ -99,7 +99,6 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias gcw='gcc -Wall -pedantic -std=c11'
 alias i3config='vim ~/.config/i3/config'
 alias zshconfig='vim ~/.zshrc'
 alias wifiscan='nmcli device wifi list'

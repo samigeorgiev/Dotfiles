@@ -75,10 +75,14 @@ gimp
 go
 jdk-openjdk
 jdk8-openjdk
+go-ethereum
+discord
 
 -----AUR Packages-----
 yay
 kbdd-git
+gitkraken
+zoom
 
 -----Other-----
 oh-my-zsh
