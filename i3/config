@@ -2,46 +2,8 @@ set $mod Mod4
 
 font pango:Hack 10
 
-set $home /home/sami
-
-# For debugging
-# bindsym $mod+Shift+d exec /home/sami/.config/i3/scripts/debug arg1 arg2
-
-# NetworkManager applet
-exec --no-startup-id nm-applet
-
-# Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-# colors
-set $bg-color            #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676e7d
-set $urgent-bg-color     #e53935
-
-# exit command
-set $exit_command /home/sami/.config/i3/scripts/exit
-
-# Use Mouse+$mod to drag floating windows to their wanted position
+# use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-
-# launch rofi (program launcher)
-bindsym $mod+d exec rofi -show drun -theme Arc-Dark -lines 5 -width 20 -show-icons
-
-# launch VSCode
-bindsym $mod+c exec --no-startup-id /home/sami/Apps/VSCode-linux-x64/code
-bindsym $mod+t exec --no-startup-id /home/sami/Apps/jetbrains-toolbox/jetbrains-toolbox
-
-# kill focused window
-bindsym $mod+Shift+q kill
 
 # change focus
 bindsym $mod+j focus left
@@ -66,6 +28,9 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
+# kill focused window
+bindsym $mod+Shift+q kill
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -93,8 +58,13 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# workspace names
 set $ws1 "1: "
 set $ws2 "2: "
 set $ws3 "3: "
@@ -140,26 +110,58 @@ assign [class="GitKraken"] $ws5
 assign [class="MPlayer"] $ws6
 assign [class="ViberPC"] $ws8
 assign [class="zoom"] $ws8
-
 for_window [class="VirtualBox Machine"] move workspace $ws10
 
-# output workspace on monitor
-workspace $ws1 output primary
-workspace $ws2 output secondary
-workspace $ws3 output primary
-workspace $ws4 output secondary
-workspace $ws5 output primary
-workspace $ws6 output primary
+# use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# move workspace to monitor
-bindsym $mod+m move workspace to output right
-bindsym $mod+n move workspace to output left
+# app shortcuts
+bindsym $mod+d exec rofi -show drun -theme Arc-Dark -lines 5 -width 20 -show-icons
+bindsym $mod+Return exec i3-sensible-terminal
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
+# for debugging
+# bindsym $mod+Shift+d exec /home/sami/.config/i3/scripts/debug arg1 arg2
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+# colors
+set $bg-color            #2f343f
+set $inactive-bg-color   #2f343f
+set $text-color          #f3f4f5
+set $inactive-text-color #676e7d
+set $urgent-bg-color     #e53935
+
+# window colors
+#                       border             background         text                 indicator
+client.focused          $bg-color          $bg-color          $text-color          #00ff00
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          #00ff00
+
+# hide window borders
+hide_edge_borders both
+
+# start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
+bar {
+        status_command i3blocks -c /home/sami/.config/i3/i3blocks.conf
+	tray_output LVDS-1
+	colors {
+		background $bg-color
+		separator #757575
+		#                  border             background         text
+		focused_workspace  $bg-color          $bg-color          $text-color
+		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+	}
+}
+
+# exit command
+set $exit_command /home/sami/.config/i3/scripts/exit
+
+# lock i3
+bindsym $mod+Shift+x exec --no-startup-id $exit_command lock
 
 # exit menu
 set $exit_mode (L)ock (E)xit (S)uspend (R)eboot (Shift +S)hutdown
@@ -177,7 +179,8 @@ mode "$exit_mode" {
 bindsym $mod+Shift+e mode "$exit_mode"
 
 # resize window (you can also use the mouse for that)
-mode "resize" {
+set $resize resize
+mode $resize {
         # These bindings trigger as soon as you enter the resize mode
 
         # Pressing left will shrink the window’s width.
@@ -200,49 +203,23 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
+bindsym $mod+r mode $resize
 
-bindsym $mod+r mode "resize"
+# add bg layout
+exec --no-startup-id setxkbmap -layout us,bg -variant ,phonetic -option 'grp:alt_shift_toggle'
 
-# window colors
-#                       border             background         text                 indicator
-client.focused          $bg-color          $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          #00ff00
-
-# hide window borders
-hide_edge_borders both
-
-# start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3blocks -c $home/.config/i3/i3blocks.conf
-	tray_output LVDS-1
-	colors {
-		background $bg-color
-		separator #757575
-		#                  border             background         text
-		focused_workspace  $bg-color          $bg-color          $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-	}
-}
-
-# Lock i3
-bindsym $mod+Shift+x exec --no-startup-id $exit_command lock
+# NetworkManager applet
+exec --no-startup-id nm-applet
 
 # autolock
 exec --no-startup-id xautolock -time 10 -locker "$exit_command lock"
 
-# Set wallpaper
-exec_always --no-startup-id feh --bg-scale $home/Wallpapers/archlinux-deep-aurora.jpg
+# set wallpaper
+exec_always --no-startup-id feh --bg-scale /home/sami/Wallpapers/archlinux-deep-aurora.jpg
 
-# Enable multiple monitors
-exec_always --no-startup-id xrandr --output LVDS-1 --auto --output DP-1-1 --auto --left-of LVDS-1 --primary
+# enable external monitor
+exec_always --no-startup-id xrandr --output DP-1-1 --auto
 
 # start apps after boot
-exec --no-startup-id chromium
+exec --no-startup-id brave
 exec i3-sensible-terminal
-
-# add bg layout
-exec --no-startup-id setxkbmap -layout us,bg -variant ,phonetic -option 'grp:alt_shift_toggle'
