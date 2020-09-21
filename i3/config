@@ -146,7 +146,6 @@ hide_edge_borders both
 # start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
 bar {
         status_command i3blocks -c /home/sami/.config/i3/i3blocks.conf
-	tray_output LVDS-1
 	colors {
 		background $bg-color
 		separator #757575
@@ -218,8 +217,9 @@ exec --no-startup-id xautolock -time 10 -locker "$exit_command lock"
 exec_always --no-startup-id feh --bg-scale /home/sami/Wallpapers/archlinux-deep-aurora.jpg
 
 # enable external monitor
-exec_always --no-startup-id xrandr --output DP-1-1 --auto
+exec_always --no-startup-id xrandr --output DP-1-0 --auto
 
 # start apps after boot
 exec --no-startup-id brave
 exec i3-sensible-terminal
+exec viber
