@@ -105,6 +105,8 @@ assign [class="Brave-browser" window_role="browser"] $ws1
 assign [class="Gnome-terminal"] $ws2
 assign [class="Code" window_role="browser-window"] $ws3
 assign [class="jetbrains-idea"] $ws3
+assign [class="VirtualBox Manager"] $ws4
+assign [class="VirtualBox Machine"] $ws9
 assign [class="ViberPC"] $ws10
 assign [class="zoom"] $ws10
 
