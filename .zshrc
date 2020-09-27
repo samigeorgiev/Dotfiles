@@ -101,9 +101,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias i3config='vim ~/.config/i3/config'
 alias zshconfig='vim ~/.zshrc'
+alias upi3config='rm ~/.config/i3/config && cp ~/Dotfiles/i3/config ~/.config/i3'
+
 alias wifiscan='nmcli device wifi list'
 alias wificonnect='nmcli device wifi connect'
+
 alias static='python -m http.server'
+
 alias tsmstart='transmission-daemon'
 alias tsm="transmission-remote"
 alias tsmstop='transmission-remote --exit'

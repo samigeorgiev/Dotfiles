@@ -1,0 +1,5 @@
+#!/bin/bash
+
+/usr/bin/viber &
+sleep 3
+i3-msg '[class="ViberPC"] kill'

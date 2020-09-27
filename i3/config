@@ -219,9 +219,9 @@ exec --no-startup-id xautolock -time 10 -locker "$exit_command lock"
 exec_always --no-startup-id feh --bg-scale /home/sami/Wallpapers/archlinux-deep-aurora.jpg
 
 # enable external monitor
-exec_always --no-startup-id xrandr --output DP-1-0 --auto
+exec_always --no-startup-id xrandr --output DP-1-1 --auto
 
 # start apps after boot
 exec --no-startup-id brave
 exec i3-sensible-terminal
-exec viber
+exec --no-startup-id /home/sami/.config/i3/scripts/start-viber
