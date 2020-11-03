@@ -107,11 +107,11 @@ bindsym $mod+Tab workspace back_and_forth
 assign [class="Brave-browser" window_role="browser"] $ws1
 assign [class="Gnome-terminal"] $ws2
 assign [class="Code" window_role="browser-window"] $ws3
-assign [class="jetbrains-idea"] $ws3
+for_window [class="jetbrains-idea"] floating enable, move workspace $ws3
 assign [class="VirtualBox Manager"] $ws4
 for_window [class="VirtualBox Machine"] move workspace $ws9
 assign [class="ViberPC"] $ws10
-assign [class="zoom"] $ws10
+assign [class="discord"] $ws10
 
 # use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -124,6 +124,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym $mod+d exec rofi -show drun -theme Arc-Dark -lines 5 -width 20 -show-icons
 bindsym Menu exec rofi -show drun -theme Arc-Dark -lines 5 -width 20 -show-icons
 bindsym $mod+Return exec i3-sensible-terminal
+bindsym Print exec 'scrot -e "mv $f /home/sami/Screenshots/"'
 
 # for debugging
 # bindsym $mod+Shift+d exec /home/sami/.config/i3/scripts/debug arg1 arg2
