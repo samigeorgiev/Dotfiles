@@ -1,0 +1,12 @@
+#!/bin/bash
+
+MAIN_CONFIG=/etc/regolith/i3/config
+OVERRIDE_CONFIG=~/Dotfiles/regolith/config
+RESULT_CONFIG=~/.config/regolith/i3/config
+
+rm -f $RESULT_CONFIG
+mkdir -p $(dirname $RESULT_CONFIG)
+
+cat $MAIN_CONFIG >> $RESULT_CONFIG
+echo -e "\n\n# USER OVERRIDES:\n" >> $RESULT_CONFIG
+cat $OVERRIDE_CONFIG >> $RESULT_CONFIG
