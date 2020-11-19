@@ -8,5 +8,11 @@ rm -f $RESULT_CONFIG
 mkdir -p $(dirname $RESULT_CONFIG)
 
 cat $MAIN_CONFIG >> $RESULT_CONFIG
-echo -e "\n\n# USER OVERRIDES:\n" >> $RESULT_CONFIG
+
+echo -e "\n\n" >> $RESULT_CONFIG
+echo "###############################################################################" >> $RESULT_CONFIG
+echo "# User overrides" >> $RESULT_CONFIG
+echo "###############################################################################" >> $RESULT_CONFIG
+echo
+
 cat $OVERRIDE_CONFIG >> $RESULT_CONFIG
