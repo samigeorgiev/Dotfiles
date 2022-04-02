@@ -2,7 +2,7 @@
 export PATH=/home/sami/Apps/VSCode-linux-x64:/home/sami/Apps/jetbrains-toolbox:/home/sami/go/bin:/home/sami/Apps/op:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/sami/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set default user
 export DEFAULT_USER="sami"
